@@ -12,10 +12,16 @@ import { Item } from '../../models';
 })
 export class SelectItemsComponent {
 
-  constructor(private itemsStoreService: ItemsStoreService) {}
+  items: Item[] = [];
 
-  addItem(item: Item) {
-    this.itemsStoreService.addItem(item);
+  constructor(private itemsStoreService: ItemsStoreService) {
+    this.itemsStoreService.items$.subscribe(items => this.items = items);
+  }
+
+  addItem() {
+    const lastItemId = this.items.length > 0 ? this.items[this.items.length - 1].id : 0;
+    const newItem = { id: lastItemId + 1, name: 'testItem' };
+    this.itemsStoreService.addItem(newItem);
   }
   
 }

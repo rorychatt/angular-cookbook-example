@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SelectItemsComponent } from '../components/select-items/select-items.component';
 import { ItemsStoreService } from '../services/items-store.service';
+import { Basket, Item } from '../models';
 
 @Component({
   selector: 'app-admin',
@@ -11,8 +12,10 @@ import { ItemsStoreService } from '../services/items-store.service';
   providers: [ItemsStoreService],
 })
 export class AdminComponent {
-  
-  constructor(private readonly itemsStoreService: ItemsStoreService) {}
-  
-  items$ = this.itemsStoreService.items$;
+
+  basket: Basket = { items: [] };
+
+  constructor(private readonly itemsStoreService: ItemsStoreService) {
+    this.itemsStoreService.items$.subscribe(items => this.basket = { items });
+  }
 }
