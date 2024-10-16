@@ -8,7 +8,6 @@ import { Item } from '../../models';
   imports: [],
   templateUrl: './select-items.component.html',
   styleUrl: './select-items.component.scss',
-  providers: [ItemsStoreService],
 })
 export class SelectItemsComponent {
 
