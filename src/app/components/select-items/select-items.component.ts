@@ -8,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './select-items.component.scss'
 })
 export class SelectItemsComponent {
+addItem() {
+throw new Error('Method not implemented.');
+}
 
 }
