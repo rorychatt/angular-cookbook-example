@@ -11,26 +11,15 @@
     </tr>
   </thead>
   <tbody>
+   @for (item of items; track item.id) {
     <tr>
-      <th>1</th>
-      <td>Apple 🍎</td>
+      <td>{{ item.id }}</td>
+      <td>{{ item.name }}</td>
       <td>
-        <button class="btn btn-danger">Remove</button>
+        <!-- <button (click)="removeItem(item.id)">Remove</button> -->
+        <button>Remove</button>
       </td>
     </tr>
-    <tr>
-      <th>2</th>
-      <td>Pear 🍐</td>
-      <td>
-        <button class="btn btn-danger">Remove</button>
-      </td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Banana 🍌</td>
-      <td>
-        <button class="btn btn-danger">Remove</button>
-      </td>
-    </tr>
+   }
   </tbody>
 </table>
