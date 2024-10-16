@@ -1,12 +1,36 @@
 <h2>Admin</h2>
-<select class="select select-bordered w-full max-w-xs">
-    <option disabled selected>Choose...</option>
-    <option value="🍎">Apple 🍎</option>
-    <option value="🍌">Banana 🍌</option>
-    <option value="🍒">Cherry 🍒</option>
-    <option value="🍇">Grape 🍇</option>
-  </select>
-  <button class="btn">Add to basket 🛒</button>
+<app-select-items />
 
-  <h2>Basket</h2>
-  
+<h2>Basket</h2>
+<table class="talbe">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Item</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Apple 🍎</td>
+      <td>
+        <button class="btn btn-danger">Remove</button>
+      </td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Pear 🍐</td>
+      <td>
+        <button class="btn btn-danger">Remove</button>
+      </td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Banana 🍌</td>
+      <td>
+        <button class="btn btn-danger">Remove</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
