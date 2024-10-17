@@ -1,10 +1,8 @@
 <div class="flex flex-row gap-4 align-middle justify-between">
-  <select class="select select-bordered w-full max-w-xs">
-    <option disabled selected>Choose...</option>
-    <option value="🍎">Apple 🍎</option>
-    <option value="🍌">Banana 🍌</option>
-    <option value="🍒">Cherry 🍒</option>
-    <option value="🍇">Grape 🍇</option>
+  <select [formControl]="selectedItem" class="select select-bordered w-full max-w-xs">
+    @for (item of storeItems; track $index) {
+    <option [value]="item">{{ item }}</option>
+    }
   </select>
   <button (click)="addItem()" class="btn">Add to basket 🛒</button>
 </div>
