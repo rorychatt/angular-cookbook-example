@@ -8,7 +8,7 @@ import { ComponentStore } from '@ngrx/component-store';
 export class ItemsStoreService extends ComponentStore<Basket> {
 
   constructor() {
-    super({ items: [] });
+    super({ items: []});
   }
 
   readonly items$ = this.select(state => state.items);

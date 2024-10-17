@@ -1,25 +1,27 @@
-<h2>Admin</h2>
-<app-select-items />
+<section class="flex flex-col items-center max-w-xl mx-auto max-h-[600px] overflow-y-auto">
+  <h2>Admin</h2>
+  <app-select-items />
+  <h2>Basket</h2>
 
-<h2>Basket</h2>
-<table class="talbe">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Item</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-   @for (item of itemsStoreService.items$ | async; track item.id) {
-    <tr>
-      <td>{{ item.id }}</td>
-      <td>{{ item.name }}</td>
-      <td>
-        <!-- <button (click)="removeItem(item.id)">Remove</button> -->
-        <button>Remove</button>
-      </td>
-    </tr>
-   }
-  </tbody>
-</table>
+  <table class="table">
+    <thead class="sticky top-0 bg-gray-800">
+      <tr>
+        <th>Id</th>
+        <th>Item</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of itemsStoreService.items$ | async; track item.id) {
+      <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td>
+          <!-- <button (click)="removeItem(item.id)">Remove</button> -->
+          <button>Remove</button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</section>
