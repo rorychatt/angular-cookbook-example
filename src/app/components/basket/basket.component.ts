@@ -1,4 +1,4 @@
-import {Component, input} from '@angular/core';
+import {Component, input, output} from '@angular/core';
 import {Item} from '../../models';
 import {AsyncPipe} from '@angular/common';
 
@@ -12,8 +12,10 @@ import {AsyncPipe} from '@angular/common';
 export class BasketComponent {
 
   items = input<Item[]>();
+  idRemoved = output<number>()
 
   removeItemById(id: number) {
-    console.error('pls fix me');
+    this.idRemoved.emit(id);
   }
+
 }
