@@ -1,27 +1,28 @@
-<section class="flex flex-col items-center max-w-xl mx-auto max-h-[600px] overflow-y-auto">
+<section class="flex flex-col gap-4 items-center max-w-xl mx-auto">
   <h2>Admin</h2>
   <app-select-items />
   <h2>Basket</h2>
 
-  <table class="table">
-    <thead class="sticky top-0 bg-gray-800">
-      <tr>
-        <th>Id</th>
-        <th>Item</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      @for (item of itemsStoreService.items$ | async; track item.id) {
-      <tr>
-        <td>{{ item.id }}</td>
-        <td>{{ item.name }}</td>
-        <td>
-          <!-- <button (click)="removeItem(item.id)">Remove</button> -->
-          <button (click)="removeItemById(item.id)">Remove</button>
-        </td>
-      </tr>
-      }
-    </tbody>
-  </table>
+  <div class="max-h-[600px] overflow-y-auto w-full">
+    <table class="table w-full">
+      <thead class="sticky top-0 bg-gray-800">
+        <tr>
+          <th>Id</th>
+          <th>Item</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of itemsStoreService.items$ | async; track item.id) {
+        <tr>
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td>
+            <button (click)="removeItemById(item.id)">Remove</button>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
 </section>
