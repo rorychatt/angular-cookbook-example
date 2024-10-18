@@ -14,17 +14,9 @@ import { BasketComponent } from "../components/basket/basket.component";
 })
 export class AdminComponent {
 
-  basket: Basket = { items: [] };
   itemsStoreService = inject(ItemsStoreService);
 
   removeItemById(itemId: number) {
     this.itemsStoreService.removeItemById(itemId);
   }
-
-  // constructor(itemsStoreService: ItemsStoreService) {
-  //   itemsStoreService.items$.subscribe(items => {
-  //     this.basket.items = items;
-  //     console.log(items);
-  //   });
-  // }
 }

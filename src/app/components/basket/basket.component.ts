@@ -12,10 +12,10 @@ import {AsyncPipe} from '@angular/common';
 export class BasketComponent {
 
   items = input<Item[]>();
-  idRemoved = output<number>()
+  onItemRemovedById = output<number>()
 
   removeItemById(id: number) {
-    this.idRemoved.emit(id);
+    this.onItemRemovedById.emit(id);
   }
 
 }
