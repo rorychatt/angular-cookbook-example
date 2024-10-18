@@ -1,6 +1,6 @@
-import { Component, input} from '@angular/core';
-import { Item } from '../../models';
-import { AsyncPipe } from '@angular/common';
+import {Component, input} from '@angular/core';
+import {Item} from '../../models';
+import {AsyncPipe} from '@angular/common';
 
 @Component({
   selector: 'app-basket',
@@ -13,4 +13,7 @@ export class BasketComponent {
 
   items = input<Item[]>();
 
+  removeItemById(id: number) {
+    console.error('pls fix me');
+  }
 }
