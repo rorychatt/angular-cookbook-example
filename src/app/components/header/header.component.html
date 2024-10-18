@@ -4,6 +4,9 @@
     <ul class="flex space-x-4">
       <li routerLink="/employee">Employee panel</li>
       <li routerLink="/admin">Admin panel</li>
+      @if (isLoggedIn()) {
+        <li routerLink="/">Log Out</li>
+      }
     </ul>
   </nav>
 </header>
