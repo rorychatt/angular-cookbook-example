@@ -11,7 +11,8 @@ import {AsyncPipe} from '@angular/common';
 })
 export class BasketComponent {
 
-  items = input<Item[]>();
+  items = input<Item[]>([]);
+  isAdmin = input<boolean>(false);
   onItemRemovedById = output<number>()
 
   removeItemById(id: number) {
