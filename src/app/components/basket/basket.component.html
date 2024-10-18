@@ -1,0 +1,24 @@
+<h2>Basket</h2>
+
+<div class="max-h-[600px] overflow-y-auto w-full">
+  <table class="table w-full bg-gray-800">
+    <thead class="sticky top-0 bg-gray-900">
+      <tr>
+        <th>Id</th>
+        <th>Item</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of items | async; track item.id) {
+      <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td>
+          <button class="btn-ghost" (click)="removeItemById(item.id)">Remove</button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
