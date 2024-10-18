@@ -17,7 +17,7 @@ export class SelectItemsComponent {
 
   itemSubmitForm = new FormGroup({
     selectedItem: new FormControl('')
-  })
+  });
 
   constructor(private itemsStoreService: ItemsStoreService) {
     this.itemsStoreService.items$.subscribe(items => this.items = items);
@@ -34,5 +34,5 @@ export class SelectItemsComponent {
   getSelectedItem(){
     return this.itemSubmitForm.get('selectedItem')?.value;
   }
-  
+
 }

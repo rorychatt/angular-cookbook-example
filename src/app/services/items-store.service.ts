@@ -8,8 +8,8 @@ import { ComponentStore } from '@ngrx/component-store';
 export class ItemsStoreService extends ComponentStore<Basket> {
 
   constructor() {
-    super({ items: [] });
-  }
+    super({ items: []});
+    }
 
   readonly items$ = this.select((state) => state.items);
 
@@ -20,5 +20,5 @@ export class ItemsStoreService extends ComponentStore<Basket> {
   readonly removeItemById = this.updater((state, itemId: number) => ({
     items: state.items.filter((item) => item.id !== itemId),
   }));
-  
+
 }
