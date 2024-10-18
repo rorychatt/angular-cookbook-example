@@ -3,11 +3,12 @@ import { SelectItemsComponent } from "../components/select-items/select-items.co
 import { Basket } from '../models';
 import { ItemsStoreService } from '../services/items-store.service';
 import { AsyncPipe } from '@angular/common';
+import { BasketComponent } from '../components/basket/basket.component';
 
 @Component({
   selector: 'app-employee',
   standalone: true,
-  imports: [SelectItemsComponent, AsyncPipe],
+  imports: [SelectItemsComponent, AsyncPipe, BasketComponent],
   templateUrl: './employee.component.html',
   styleUrl: './employee.component.scss'
 })
