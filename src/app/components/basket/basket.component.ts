@@ -11,6 +11,6 @@ import { AsyncPipe } from '@angular/common';
 })
 export class BasketComponent {
 
-  items$ = input<Item[]>();
+  items = input<Item[]>();
 
 }
