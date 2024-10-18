@@ -18,7 +18,7 @@
         <td>{{ item.name }}</td>
         <td>
           <!-- <button (click)="removeItem(item.id)">Remove</button> -->
-          <button>Remove</button>
+          <button (click)="removeItemById(item.id)">Remove</button>
         </td>
       </tr>
       }
