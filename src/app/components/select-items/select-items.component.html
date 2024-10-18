@@ -1,7 +1,7 @@
 <form [formGroup]="itemSubmitForm" (ngSubmit)="addItem()" class="flex flex-row gap-4 align-middle justify-between">
   <select formControlName="selectedItem" class="select select-bordered w-full max-w-xs">
     <option value="" disabled selected>Select an item</option>
-    @for (item of storeItems; track $index) {
+    @for (item of storeItems; track item) {
     <option [value]="item">{{ item }}</option>
     }
   </select>

@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input} from '@angular/core';
 import { Item } from '../../models';
 import { AsyncPipe } from '@angular/common';
 
@@ -7,10 +7,10 @@ import { AsyncPipe } from '@angular/common';
   standalone: true,
   imports: [AsyncPipe],
   templateUrl: './basket.component.html',
-  styleUrl: './basket.component.scss'
+  styleUrl: './basket.component.scss',
 })
 export class BasketComponent {
 
-  items=input<Item[]>([])
+  items$ = input<Item[]>();
 
 }
