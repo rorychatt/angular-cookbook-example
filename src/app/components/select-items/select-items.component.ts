@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ItemsStoreService } from '../../services/items-store.service';
 import { Item, possibleItems } from '../../models';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-select-items',
@@ -13,8 +13,11 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 export class SelectItemsComponent {
 
   items: Item[] = [];
-  selectedItem = new FormControl('');
   storeItems = possibleItems;
+
+  itemSubmitForm = new FormGroup({
+    selectedItem: new FormControl('')
+  })
 
   constructor(private itemsStoreService: ItemsStoreService) {
     this.itemsStoreService.items$.subscribe(items => this.items = items);
@@ -29,7 +32,7 @@ export class SelectItemsComponent {
   }
 
   getSelectedItem(){
-    return this.selectedItem.value;
+    return this.itemSubmitForm.get('selectedItem')?.value;
   }
   
 }
