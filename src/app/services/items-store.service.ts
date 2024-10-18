@@ -3,7 +3,7 @@ import { Basket, Item } from '../models';
 import { ComponentStore } from '@ngrx/component-store';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ItemsStoreService extends ComponentStore<Basket> {
 
@@ -11,9 +11,14 @@ export class ItemsStoreService extends ComponentStore<Basket> {
     super({ items: [] });
   }
 
-  readonly items$ = this.select(state => state.items);
+  readonly items$ = this.select((state) => state.items);
 
   readonly addItem = this.updater((state, item: Item) => ({
     items: [...state.items, item],
   }));
+
+  readonly removeItemById = this.updater((state, itemId: number) => ({
+    items: state.items.filter((item) => item.id !== itemId),
+  }));
+  
 }
