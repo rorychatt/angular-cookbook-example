@@ -1,6 +1,6 @@
-import {Component, inject} from '@angular/core';
-import {RouterLink} from '@angular/router';
-import {LoginService} from '../../services/login.service';
+import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-login',

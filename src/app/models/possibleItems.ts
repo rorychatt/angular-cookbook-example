@@ -1,6 +1,6 @@
 export const possibleItems = [
-    'Apple 🍎',
-    'Banana 🍌',
-    'Cherry 🍒',
-    'Grape 🍇'
+  'Apple 🍎',
+  'Banana 🍌',
+  'Cherry 🍒',
+  'Grape 🍇'
 ]

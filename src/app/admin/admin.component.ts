@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { SelectItemsComponent } from '../components/select-items/select-items.component';
 import { ItemsStoreService } from '../services/items-store.service';
-import { Basket, Item } from '../models';
 import { AsyncPipe } from '@angular/common';
 import { BasketComponent } from "../components/basket/basket.component";
 

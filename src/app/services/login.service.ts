@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
-import {ComponentStore} from '@ngrx/component-store';
-import {Authority} from '../models';
+import { Injectable } from '@angular/core';
+import { ComponentStore } from '@ngrx/component-store';
+import { Authority } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +8,12 @@ import {Authority} from '../models';
 export class LoginService extends ComponentStore<Authority> {
 
   constructor() {
-    super({isLoggedIn: false});
+    super({ isLoggedIn: false });
   }
 
   readonly loggedIn$ = this.select((state) => state.isLoggedIn);
 
-  readonly logIn = this.updater((state) => ({isLoggedIn: true}));
+  readonly logIn = this.updater((state) => ({ isLoggedIn: true }));
 
-  readonly logOut = this.updater((state) => ({isLoggedIn: false}));
+  readonly logOut = this.updater((state) => ({ isLoggedIn: false }));
 }

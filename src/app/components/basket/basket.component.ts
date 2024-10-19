@@ -1,6 +1,6 @@
-import {Component, input, output} from '@angular/core';
-import {Item} from '../../models';
-import {AsyncPipe} from '@angular/common';
+import { Component, input, output } from '@angular/core';
+import { Item } from '../../models';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-basket',
