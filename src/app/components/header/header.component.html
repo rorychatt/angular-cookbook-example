@@ -4,7 +4,7 @@
     <ul class="flex space-x-4">
       <li routerLink="/employee">Employee</li>
       <li routerLink="/admin">Admin</li>
-      @if (isLoggedIn | async) {
+      @if (isLoggedIn$ | async) {
         <li routerLink="/" (click)="logOut()">Log Out</li>
       }
     </ul>
