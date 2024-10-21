@@ -6,6 +6,11 @@
       <li routerLink="/admin">Admin</li>
       @if (isLoggedIn$ | async) {
         <li routerLink="/" (click)="logOut()">Log Out</li>
+        @if (isAdmin$ | async) {
+          <li>A</li>
+        } @else {
+          <li>E</li>
+        }
       }
     </ul>
   </nav>
