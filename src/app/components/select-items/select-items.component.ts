@@ -12,7 +12,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 export class SelectItemsComponent {
 
   possibleItemNames = input.required<string[]>();
-  onItemAdd = output<Item>();
+  onItemAdd = output<string>();
 
   itemSubmitForm = new FormGroup({
     selectedItem: new FormControl('')
@@ -20,12 +20,11 @@ export class SelectItemsComponent {
 
   addItem() {
     if (!this.getSelectedItem()) return;
-    const newItem = { id: Math.random(), name: this.getSelectedItem()! };
-    this.onItemAdd.emit(newItem);
+    this.onItemAdd.emit(this.getSelectedItem());
   }
 
   getSelectedItem() {
-    return this.itemSubmitForm.get('selectedItem')?.value;
+    return this.itemSubmitForm.get('selectedItem')?.value ?? '';
   }
 
 }

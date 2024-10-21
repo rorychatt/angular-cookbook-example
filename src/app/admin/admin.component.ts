@@ -22,7 +22,7 @@ export class AdminComponent {
 
   protected readonly possibleItemNames = possibleItemNames;
 
-  addItem($event: Item) {
+  addItem($event: string) {
     this.itemsStoreService.addItem($event);
   }
 }
