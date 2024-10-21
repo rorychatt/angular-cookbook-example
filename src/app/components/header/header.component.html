@@ -2,10 +2,16 @@
   <nav class="flex justify-between w-full">
     <a routerLink="/">Angular cookbook example</a>
     <ul class="flex space-x-4">
-      <button class="btn btn-neutral"> <li routerLink="/employee">Employee</li> </button>
-      <button class="btn btn-neutral"> <li routerLink="/admin">Admin</li> </button>
+      <button class="btn btn-neutral" [ngClass]="{'btn-disabled': ((isAdmin$ | async) && (isLoggedIn$ | async)) || !(isLoggedIn$ | async) }">
+        <li routerLink="/employee">Employee</li>
+      </button>
+      <button class="btn btn-neutral" [ngClass]="{'btn-disabled': !(isAdmin$ | async) && (isLoggedIn$ | async) || !(isLoggedIn$ | async)}">
+        <li routerLink="/admin">Admin</li>
+      </button>
       @if (isLoggedIn$ | async) {
-        <button class="btn btn-neutral"> <li routerLink="/" (click)="logOut()">Log Out</li> </button> 
+        <button class="btn btn-neutral">
+          <li routerLink="/" (click)="logOut()">Log Out</li>
+        </button>
         @if (isAdmin$ | async) {
           <li>A</li>
         } @else {
