@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Basket, Item } from '../models';
+import { Basket } from '../models';
 import { ComponentStore } from '@ngrx/component-store';
 
 @Injectable({
@@ -22,9 +22,12 @@ export class ItemsStoreService extends ComponentStore<Basket> {
   }));
 
   private getLastItemId = () => {
-    return this.select((state) => {
+    let lastItemId = 0;
+    this.select((state) => {
       return state.items[state.items.length - 1]?.id ?? 0
-    });
+    })
+      .subscribe(id => lastItemId = id);
+    return lastItemId;
   };
 
   private createNewItem(itemName: string) {
