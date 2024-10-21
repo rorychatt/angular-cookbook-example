@@ -3,7 +3,7 @@ import { SelectItemsComponent } from '../components/select-items/select-items.co
 import { ItemsStoreService } from '../services/items-store.service';
 import { AsyncPipe } from '@angular/common';
 import { BasketComponent } from "../components/basket/basket.component";
-import { Item, possibleItemNames } from '../models';
+import { possibleItemNames } from '../models';
 
 @Component({
   selector: 'app-admin',

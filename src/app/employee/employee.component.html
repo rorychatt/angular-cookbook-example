@@ -1,5 +1,5 @@
 <section class="flex flex-col gap-4 items-center max-w-xs mx-auto">
   <h2>Employee</h2>
-  <app-select-items/>
+  <app-select-items (onItemAdd)="addItem($event)" [possibleItemNames]="possibleItemNames"/>
   <app-basket [items]="(itemsStoreService.items$ | async)!"/>
 </section>
