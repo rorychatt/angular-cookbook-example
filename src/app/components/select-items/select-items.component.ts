@@ -1,11 +1,11 @@
 import { Component, input, output } from '@angular/core';
-import { Item } from '../../models';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-select-items',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NgClass],
   templateUrl: './select-items.component.html',
   styleUrl: './select-items.component.scss',
 })

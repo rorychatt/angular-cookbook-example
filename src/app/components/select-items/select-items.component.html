@@ -5,5 +5,5 @@
       <option [value]="item">{{ item }}</option>
     }
   </select>
-  <button [disabled]="!itemSubmitForm.valid" class="btn">Add to basket 🛒</button>
+  <button [disabled]="!itemSubmitForm.valid" class="btn" [ngClass]="{'btn-disabled': !itemSubmitForm.get('selectedItem')?.value}">Add to basket 🛒</button>
 </form>
