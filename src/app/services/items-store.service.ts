@@ -14,26 +14,14 @@ export class ItemsStoreService extends ComponentStore<Basket> {
   readonly items$ = this.select((state) => state.items);
 
   readonly addItem = this.updater((state, itemName: string) => ({
-    items: [...state.items, this.createNewItem(itemName)],
+    items: [...state.items, {
+      id: Date.now(),
+      name: itemName
+    }],
   }));
 
   readonly removeItemById = this.updater((state, itemId: number) => ({
     items: state.items.filter((item) => item.id !== itemId),
   }));
 
-  private getLastItemId = () => {
-    let lastItemId = 0;
-    this.select((state) => {
-      return state.items[state.items.length - 1]?.id ?? 0
-    })
-      .subscribe(id => lastItemId = id);
-    return lastItemId;
-  };
-
-  private createNewItem(itemName: string) {
-    return {
-      id: this.getLastItemId() + 1,
-      name: itemName,
-    };
-  }
 }
