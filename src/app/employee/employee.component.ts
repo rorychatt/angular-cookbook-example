@@ -15,9 +15,7 @@ import { BasketComponent } from '../components/basket/basket.component';
 })
 export class EmployeeComponent {
 
-  basket: Basket = { items: [] };
   itemsStoreService = inject(ItemsStoreService);
-
 
   protected readonly possibleItemNames = possibleItemNames;
 
