@@ -13,10 +13,10 @@ export class BasketComponent {
 
   items = input.required<Item[]>();
   isAdmin = input<boolean>(false);
-  onItemRemovedById = output<number>()
+  onItemRemoveById = output<number>()
 
   removeItemById(id: number) {
-    this.onItemRemovedById.emit(id);
+    this.onItemRemoveById.emit(id);
   }
 
 }

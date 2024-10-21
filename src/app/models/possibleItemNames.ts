@@ -1,4 +1,4 @@
-export const possibleItems = [
+export const possibleItemNames = [
   'Apple 🍎',
   'Banana 🍌',
   'Cherry 🍒',

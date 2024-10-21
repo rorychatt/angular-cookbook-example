@@ -1,6 +1,6 @@
 <section class="flex flex-col gap-4 items-center max-w-xl mx-auto">
   <h2>Admin</h2>
-  <app-select-items/>
-  <app-basket (onItemRemovedById)="removeItemById($event)" [items]="(itemsStoreService.items$ | async)!"
+  <app-select-items (onItemAdd)="addItem($event)" [possibleItemNames]="possibleItemNames"/>
+  <app-basket (onItemRemoveById)="removeItemById($event)" [items]="(itemsStoreService.items$ | async)!"
               [isAdmin]="true"/>
 </section>
