@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
-import { ItemsStoreService } from '../../services/items-store.service';
-import { Item, possibleItems } from '../../models';
+import { Component, input, output } from '@angular/core';
+import { Item } from '../../models';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -12,27 +11,20 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class SelectItemsComponent {
 
-  items: Item[] = [];
-  storeItems = possibleItems;
+  possibleItemNames = input.required<string[]>();
+  onItemAdd = output<string>();
 
   itemSubmitForm = new FormGroup({
     selectedItem: new FormControl('')
-  })
-
-  constructor(private itemsStoreService: ItemsStoreService) {
-    this.itemsStoreService.items$.subscribe(items => this.items = items);
-  }
+  });
 
   addItem() {
-    if(!this.getSelectedItem()) return;
-    const lastItemId = this.items.length > 0 ? this.items[this.items.length - 1].id : 0;
-    const newItem = { id: lastItemId + 1, name: this.getSelectedItem()!};
-    this.itemsStoreService.addItem(newItem);
-    console.log('Item added:', newItem);
+    if (!this.getSelectedItem()) return;
+    this.onItemAdd.emit(this.getSelectedItem());
   }
 
-  getSelectedItem(){
-    return this.itemSubmitForm.get('selectedItem')?.value;
+  getSelectedItem() {
+    return this.itemSubmitForm.get('selectedItem')?.value ?? '';
   }
-  
+
 }

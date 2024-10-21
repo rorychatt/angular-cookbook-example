@@ -1,14 +1,21 @@
-import { Component } from '@angular/core';
-import { AdminLoginComponent } from '../admin-login/admin-login.component';
-import { EmployeeLoginComponent } from '../employee-login/employee-login.component';
+import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [AdminLoginComponent, EmployeeLoginComponent],
+  imports: [
+    RouterLink
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
 
+  loginService = inject(LoginService);
+
+  logIn() {
+    this.loginService.logIn();
+  }
 }

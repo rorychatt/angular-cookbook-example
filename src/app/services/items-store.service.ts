@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Basket, Item } from '../models';
+import { Basket } from '../models';
 import { ComponentStore } from '@ngrx/component-store';
 
 @Injectable({
@@ -13,12 +13,15 @@ export class ItemsStoreService extends ComponentStore<Basket> {
 
   readonly items$ = this.select((state) => state.items);
 
-  readonly addItem = this.updater((state, item: Item) => ({
-    items: [...state.items, item],
+  readonly addItem = this.updater((state, itemName: string) => ({
+    items: [...state.items, {
+      id: Date.now(),
+      name: itemName
+    }],
   }));
 
   readonly removeItemById = this.updater((state, itemId: number) => ({
     items: state.items.filter((item) => item.id !== itemId),
   }));
-  
+
 }
