@@ -1,22 +1,13 @@
 import { CanActivateFn } from '@angular/router';
 import { inject } from '@angular/core';
 import { LoginService } from '../services/login.service';
+import { firstValueFrom } from 'rxjs';
 
-export const adminGuard: CanActivateFn = (route, state) => {
-
+export const adminGuard: CanActivateFn = async (route, state) => {
   const authService = inject(LoginService);
 
-  // let isLoggedIn: boolean;
-  // let isAdmin: boolean;
-  //
-  //
-  // authService.loggedIn$.subscribe(state => {
-  //   isLoggedIn = state;
-  // })
-  //
-  // authService.isAdmin$.subscribe(state => {
-  //   isAdmin = state;
-  // })
+  const isLoggedIn = await firstValueFrom(authService.loggedIn$);
+  const isAdmin = await firstValueFrom(authService.isAdmin$);
 
-  return true;
+  return isLoggedIn && isAdmin;
 };
