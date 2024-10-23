@@ -1,23 +1,26 @@
-<header class="navbar bg-base-300">
+<header class="navbar bg-base-300 h-16">
   <nav class="flex justify-between w-full">
     <a routerLink="/">Angular cookbook example</a>
-    <ul class="flex space-x-4">
-      <button class="btn btn-neutral" [ngClass]="{'btn-disabled': ((isAdmin$ | async) && (isLoggedIn$ | async)) || !(isLoggedIn$ | async) }">
-        <li routerLink="/employee">Employee</li>
-      </button>
-      <button class="btn btn-neutral" [ngClass]="{'btn-disabled': !(isAdmin$ | async) && (isLoggedIn$ | async) || !(isLoggedIn$ | async)}">
-        <li routerLink="/admin">Admin</li>
-      </button>
-      @if (isLoggedIn$ | async) {
-        <button class="btn btn-neutral">
-          <li routerLink="/" (click)="logOut()">Log Out</li>
-        </button>
-        @if (isAdmin$ | async) {
-          <li>A</li>
+    @if (isLoggedIn$ | async) {
+      <ul class="flex space-x-4">
+
+        @if (!(isAdmin$ | async)) {
+          <a class="btn btn-neutral"
+             [ngClass]="{'btn-disabled': ((isAdmin$ | async) && (isLoggedIn$ | async)) || !(isLoggedIn$ | async) }"
+             routerLink="/employee">
+            Employee
+          </a>
         } @else {
-          <li>E</li>
+          <a class="btn btn-neutrÎal"
+             [ngClass]="{'btn-disabled': !(isAdmin$ | async) && (isLoggedIn$ | async) || !(isLoggedIn$ | async)}"
+             routerLink="/admin">
+            Admin
+          </a>
         }
-      }
-    </ul>
+        <a class="btn btn-neutral" routerLink="/" (click)="logOut()">
+          Log Out
+        </a>
+      </ul>
+    }
   </nav>
 </header>
