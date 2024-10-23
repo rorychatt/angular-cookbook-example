@@ -3,20 +3,6 @@
     <a routerLink="/">Angular cookbook example</a>
     @if (isLoggedIn$ | async) {
       <ul class="flex space-x-4">
-
-        @if (!(isAdmin$ | async)) {
-          <a class="btn btn-neutral"
-             [ngClass]="{'btn-disabled': ((isAdmin$ | async) && (isLoggedIn$ | async)) || !(isLoggedIn$ | async) }"
-             routerLink="/employee">
-            Employee
-          </a>
-        } @else {
-          <a class="btn btn-neutrÎal"
-             [ngClass]="{'btn-disabled': !(isAdmin$ | async) && (isLoggedIn$ | async) || !(isLoggedIn$ | async)}"
-             routerLink="/admin">
-            Admin
-          </a>
-        }
         <a class="btn btn-neutral" routerLink="/" (click)="logOut()">
           Log Out
         </a>
