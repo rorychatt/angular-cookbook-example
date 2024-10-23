@@ -15,7 +15,7 @@ export class LoginComponent {
 
   loginService = inject(LoginService);
 
-  logIn() {
-    this.loginService.logIn();
+  logIn(isAdministrator: boolean) {
+    this.loginService.logIn(isAdministrator);
   }
 }

@@ -8,12 +8,21 @@ import { AuthState } from '../models';
 export class LoginService extends ComponentStore<AuthState> {
 
   constructor() {
-    super({ isLoggedIn: false });
+    super({
+      isLoggedIn: false,
+      isAdministrator: false
+    });
   }
 
   readonly loggedIn$ = this.select((state) => state.isLoggedIn);
 
-  readonly logIn = this.updater((_) => ({ isLoggedIn: true }));
+  readonly isAdmin$ = this.select((state) => state.isAdministrator);
 
-  readonly logOut = this.updater((_) => ({ isLoggedIn: false }));
+  logIn(isAdministrator: boolean) {
+    this.patchState({ isLoggedIn: true, isAdministrator: isAdministrator });
+  }
+
+  logOut() {
+    this.patchState({ isLoggedIn: false, isAdministrator: false });
+  }
 }
