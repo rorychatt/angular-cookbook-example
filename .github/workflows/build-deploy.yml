@@ -35,6 +35,8 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
+      - name: Add angular cli
+        run: npm install -g @angular/cli
       - name: Add package for deploying
         run: ng add angular-cli-ghpages
       - name: Install dependencies
