@@ -33,4 +33,9 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have a login as administrator anchor', () => {
+    const login = fixture.nativeElement.querySelector('.btn');
+    expect(login.textContent).toContain('Login as Admin');
+  })
 });
