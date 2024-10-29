@@ -40,4 +40,12 @@ describe('SelectItemsComponent', () => {
     expect(component.getSelectedItem()).toBe(selectedItem);
   })
 
+  it('should emit selected item', () => {
+    const selectedItem = 'item 1';
+    spyOn(component.onItemAdd, 'emit');
+    component.itemSubmitForm.get('selectedItem')?.setValue(selectedItem);
+    component.addItem();
+    expect(component.onItemAdd.emit).toHaveBeenCalledWith(selectedItem);
+  })
+
 });
