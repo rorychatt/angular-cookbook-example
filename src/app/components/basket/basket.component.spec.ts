@@ -124,4 +124,19 @@ describe('BasketComponent', () => {
     expect(noItemsText.textContent).toContain('No items in the basket');
   });
 
+  it('should not display text if items in basket', () => {
+    const item: Item = {
+      id: 1,
+      name: 'item',
+    };
+    fixture.componentRef.setInput('items', [item]);
+    fixture.detectChanges();
+
+    const itemsTable = fixture.nativeElement.querySelector('table');
+    const noItemsText = fixture.nativeElement.querySelector('p');
+
+    expect(itemsTable).toBeTruthy();
+    expect(noItemsText).not.toBeTruthy();
+  });
+
 });
