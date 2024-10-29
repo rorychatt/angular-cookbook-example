@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SelectItemsComponent } from './select-items.component';
+import { possibleItemNames } from '../../models';
 
 describe('SelectItemsComponent', () => {
   let component: SelectItemsComponent;
@@ -13,6 +14,7 @@ describe('SelectItemsComponent', () => {
       .compileComponents();
 
     fixture = TestBed.createComponent(SelectItemsComponent);
+    fixture.componentRef.setInput('possibleItemNames', possibleItemNames);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
