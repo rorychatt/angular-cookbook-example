@@ -35,7 +35,14 @@ describe('LoginComponent', () => {
   });
 
   it('should have a login as administrator anchor', () => {
-    const login = fixture.nativeElement.querySelector('.btn');
-    expect(login.textContent).toContain('Login as Admin');
+    const login: HTMLAnchorElement[] = fixture.nativeElement.querySelectorAll('.btn');
+    const loginAsAdmin = Array.from(login).find((el) => el.textContent === 'Login as Admin');
+    expect(loginAsAdmin).toBeTruthy();
   })
+
+  it('should have a login as employee anchor', () => {
+    const login: HTMLAnchorElement[] = fixture.nativeElement.querySelectorAll('.btn');
+    const loginAsEmployee = Array.from(login).find((el) => el.textContent === 'Login as Employee');
+    expect(loginAsEmployee).toBeTruthy();
+  });
 });
