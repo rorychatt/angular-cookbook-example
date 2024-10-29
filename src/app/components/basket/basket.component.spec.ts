@@ -49,4 +49,19 @@ describe('BasketComponent', () => {
     expect(itemsTable.textContent).toContain('fancyItemName');
   });
 
+  it('should not have a remove button if not an admin', () =>{
+    const item: Item = {
+      id: 1,
+      name: 'item',
+    };
+    fixture.componentRef.setInput('items', [item]);
+    fixture.detectChanges();
+
+    const removeButton = fixture.nativeElement.querySelector('button');
+
+    expect(removeButton).toBeNull();
+  })
+
+
+
 });
