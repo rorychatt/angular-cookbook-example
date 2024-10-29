@@ -65,17 +65,7 @@ describe('BasketComponent', () => {
       fixture.componentRef.setInput('items', [item]);
       fixture.detectChanges();
 
-      const itemRow: HTMLTableCellElement = fixture
-        .nativeElement
-        .querySelector(
-          '[data-testid="basket-table__body"] > tbody > tr:first-child'
-        );
-
-      /**
-       * @deprecated Directly access the element by its tag name
-       */
-      const removeButton = itemRow
-        .querySelector('basket-table__remove-button');
+      const removeButton = fixture.nativeElement.querySelector('[data-testid="basket-table_data__removeButton"]');
 
       expect(removeButton).toBeNull();
     })
@@ -90,7 +80,7 @@ describe('BasketComponent', () => {
     fixture.componentRef.setInput('isAdmin', true);
     fixture.detectChanges();
 
-    const removeButton = fixture.nativeElement.querySelector('button');
+    const removeButton = fixture.nativeElement.querySelector('[data-testid="basket-table_data__removeButton"]');
 
     expect(removeButton).not.toBeNull();
   });
