@@ -11,19 +11,6 @@ describe('AdminComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AdminComponent],
-      providers: [
-        {
-          provide: ActivatedRoute,
-          useValue: {
-            url: of([{ path: '/admin' }]),
-            snapshot: {
-              paramMap: {
-                get: () => null,
-              },
-            },
-          },
-        },
-      ],
     })
     .compileComponents();
 

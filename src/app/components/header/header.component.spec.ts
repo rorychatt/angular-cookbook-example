@@ -1,8 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { of } from 'rxjs';
+import { routes } from '../../app.routes';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -10,18 +11,7 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeaderComponent],
-      providers: [{
-        provide: ActivatedRoute,
-        useValue: {
-          url: of([{ path: '/' }]),
-          snapshot: {
-            paramMap: {
-              get: () => null,
-            },
-          },
-        },
-      }]
+      imports: [HeaderComponent, RouterModule.forRoot([routes[0]])],
     })
       .compileComponents();
 
