@@ -28,4 +28,10 @@ describe('SelectItemsComponent', () => {
     expect(component.getSelectedItem()).toBe('');
   });
 
+  it('should display a list of all possible items', () => {
+    const items = fixture.nativeElement.querySelectorAll('option');
+    const numberOfDefaultItems = 1
+    expect(items.length).toBe(possibleItemNames.length + numberOfDefaultItems);
+  })
+
 });
