@@ -23,6 +23,10 @@ describe('BasketComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  /**
+   * @deprecated This is not necessary as it's not testing
+   * the component itself, but the Angular framework.
+   */
   it('should add an item to the basket', () => {
     const item: Item = {
       id: 1,
