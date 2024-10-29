@@ -112,4 +112,16 @@ describe('BasketComponent', () => {
     expect(component.onItemRemoveById.emit).toHaveBeenCalledWith(1);
   });
 
+  it('should display text if no items in basket', () => {
+    fixture.detectChanges();
+
+    const itemsTable = fixture.nativeElement.querySelector('table');
+    const noItemsText = fixture.nativeElement.querySelector('p');
+
+    expect(itemsTable).not.toBeTruthy();
+    expect(noItemsText).toBeTruthy();
+
+    expect(noItemsText.textContent).toContain('No items in the basket');
+  });
+
 });
