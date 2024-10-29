@@ -22,4 +22,10 @@ describe('SelectItemsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should add empty item', () => {
+    component.addItem();
+    expect(component.getSelectedItem()).toBe('');
+  });
+
 });
