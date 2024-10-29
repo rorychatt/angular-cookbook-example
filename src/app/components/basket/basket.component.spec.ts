@@ -65,7 +65,10 @@ describe('BasketComponent', () => {
       fixture.componentRef.setInput('items', [item]);
       fixture.detectChanges();
 
-      const removeButton = fixture.nativeElement.querySelector('[data-testid="basket-table_data__removeButton"]');
+      const removeButton = fixture
+        .nativeElement
+        .querySelector('[data-testid="basket-table_data__removeButton"]');
+
 
       expect(removeButton).toBeNull();
     })
@@ -80,7 +83,9 @@ describe('BasketComponent', () => {
     fixture.componentRef.setInput('isAdmin', true);
     fixture.detectChanges();
 
-    const removeButton = fixture.nativeElement.querySelector('[data-testid="basket-table_data__removeButton"]');
+    const removeButton = fixture
+      .nativeElement
+      .querySelector('[data-testid="basket-table_data__removeButton"]');
 
     expect(removeButton).not.toBeNull();
   });
@@ -96,7 +101,10 @@ describe('BasketComponent', () => {
 
     fixture.detectChanges();
 
-    const removeButton = fixture.nativeElement.querySelector('[data-testid="basket-table_data__removeButton"]');
+    const removeButton = fixture
+      .nativeElement
+      .querySelector('[data-testid="basket-table_data__removeButton"]');
+
     removeButton.click();
 
     expect(component.removeItemById).toHaveBeenCalled();
@@ -114,7 +122,10 @@ describe('BasketComponent', () => {
 
     fixture.detectChanges();
 
-    const removeButton = fixture.nativeElement.querySelector('button');
+    const removeButton = fixture
+      .nativeElement
+      .querySelector('[data-testid="basket-table_data__removeButton"]');
+
     removeButton.click();
 
     expect(component.onItemRemoveById.emit).toHaveBeenCalledWith(1);
