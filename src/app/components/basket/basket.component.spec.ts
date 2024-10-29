@@ -52,7 +52,7 @@ describe('BasketComponent', () => {
     expect(itemsTable.textContent).toContain('fancyItemName');
   });
 
-  it('should not have a remove button if not an admin', () => {
+  it('should not have a delete-bucket-item buttons for non-admins', () => {
     const item: Item = {
       id: 1,
       name: 'item',
