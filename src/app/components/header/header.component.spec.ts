@@ -39,4 +39,11 @@ describe('HeaderComponent', () => {
     expect(title.textContent).toContain('Angular cookbook example');
   });
 
+  it('should have logout anchor if logged in', () => {
+    component.isLoggedIn$ = of(true);
+    fixture.detectChanges();
+    const logout = fixture.nativeElement.querySelector('.btn');
+    expect(logout.textContent).toContain('Log Out');
+  })
+
 });
