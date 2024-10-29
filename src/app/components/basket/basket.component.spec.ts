@@ -77,4 +77,21 @@ describe('BasketComponent', () => {
     expect(removeButton).not.toBeNull();
   });
 
+  it('should call the item to remove', () => {
+    const item: Item = {
+      id: 1,
+      name: 'item',
+    };
+    fixture.componentRef.setInput('items', [item]);
+    fixture.componentRef.setInput('isAdmin', true);
+    spyOn(component, 'removeItemById');
+
+    fixture.detectChanges();
+
+    const removeButton = fixture.nativeElement.querySelector('button');
+    removeButton.click();
+
+    expect(component.removeItemById).toHaveBeenCalled();
+  });
+
 });
