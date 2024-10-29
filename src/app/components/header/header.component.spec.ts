@@ -46,4 +46,11 @@ describe('HeaderComponent', () => {
     expect(logout.textContent).toContain('Log Out');
   })
 
+  it('should not have logout anchor if not logged in', () => {
+    component.isLoggedIn$ = of(false);
+    fixture.detectChanges();
+    const logout = fixture.nativeElement.querySelector('.btn');
+    expect(logout).toBeNull();
+  });
+
 });
