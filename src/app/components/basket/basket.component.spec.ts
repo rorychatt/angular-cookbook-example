@@ -46,24 +46,39 @@ describe('BasketComponent', () => {
     fixture.componentRef.setInput('items', [itemToAdd]);
     fixture.detectChanges();
 
-    const item: HTMLTableCellElement = fixture.nativeElement.querySelector('[data-testid="basketTableBody"] > tbody > tr:first-child');
+    const itemRow: HTMLTableCellElement = fixture
+      .nativeElement
+      .querySelector(
+        '[data-testid="basket-table__body"] > tbody > tr:first-child'
+      );
 
-    expect(item.textContent).toContain('1');
-    expect(item.textContent).toContain('fancyItemName');
+    expect(itemRow.textContent).toContain('1');
+    expect(itemRow.textContent).toContain('fancyItemName');
   });
 
-  it('should not have a delete-bucket-item buttons for non-admins', () => {
-    const item: Item = {
-      id: 1,
-      name: 'item',
-    };
-    fixture.componentRef.setInput('items', [item]);
-    fixture.detectChanges();
+  it('should not have a delete-bucket-item buttons for non-admins',
+    () => {
+      const item: Item = {
+        id: 1,
+        name: 'item',
+      };
+      fixture.componentRef.setInput('items', [item]);
+      fixture.detectChanges();
 
-    const removeButton = fixture.nativeElement.querySelector('button');
+      const itemRow: HTMLTableCellElement = fixture
+        .nativeElement
+        .querySelector(
+          '[data-testid="basket-table__body"] > tbody > tr:first-child'
+        );
 
-    expect(removeButton).toBeNull();
-  })
+      /**
+       * @deprecated Directly access the element by its tag name
+       */
+      const removeButton = itemRow
+        .querySelector('basket-table__remove-button');
+
+      expect(removeButton).toBeNull();
+    })
 
   it('should have a remove button if an admin', () => {
     const item: Item = {

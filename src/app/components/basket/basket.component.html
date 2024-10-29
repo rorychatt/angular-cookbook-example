@@ -3,7 +3,7 @@
   @if (items().length === 0) {
     <p class="text-center">No items in the basket</p>
   } @else {
-    <table data-testid="basketTableBody" class="table w-full bg-base-200">
+    <table data-testid="basket-table__body" class="table w-full bg-base-200">
       <thead class="sticky top-0 bg-base-300">
       <tr>
         <th>Id</th>
@@ -20,7 +20,7 @@
             <td>{{ item.name }}</td>
             @if (isAdmin()) {
               <td>
-                <button class="btn btn-sm btn-ghost" (click)="removeItemById(item.id)">
+                <button data-testid="basket-table_data__removeButton" class="btn btn-sm btn-ghost" (click)="removeItemById(item.id)">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                        stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
