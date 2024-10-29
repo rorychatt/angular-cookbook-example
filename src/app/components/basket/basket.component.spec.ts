@@ -35,4 +35,18 @@ describe('BasketComponent', () => {
     expect(newItems).toEqual([item]);
   });
 
+  it('should contain item id and name', () => {
+    const item: Item = {
+      id: 1,
+      name: 'fancyItemName',
+    };
+    fixture.componentRef.setInput('items', [item]);
+    fixture.detectChanges();
+
+    const itemsTable = fixture.nativeElement.querySelector('table');
+
+    expect(itemsTable.textContent).toContain('1');
+    expect(itemsTable.textContent).toContain('fancyItemName');
+  });
+
 });
