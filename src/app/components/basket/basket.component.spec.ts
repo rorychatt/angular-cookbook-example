@@ -94,4 +94,22 @@ describe('BasketComponent', () => {
     expect(component.removeItemById).toHaveBeenCalled();
   });
 
+  it('should emit the item id to remove', () => {
+    const item: Item = {
+      id: 1,
+      name: 'item',
+    };
+    fixture.componentRef.setInput('items', [item]);
+    fixture.componentRef.setInput('isAdmin', true);
+
+    spyOn(component.onItemRemoveById, 'emit');
+
+    fixture.detectChanges();
+
+    const removeButton = fixture.nativeElement.querySelector('button');
+    removeButton.click();
+
+    expect(component.onItemRemoveById.emit).toHaveBeenCalledWith(1);
+  });
+
 });
