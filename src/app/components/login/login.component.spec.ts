@@ -54,4 +54,13 @@ describe('LoginComponent', () => {
     loginAsAdmin!.click();
     expect(component.logIn).toHaveBeenCalledWith(true);
   });
+
+  it('should emit a call with property isAdmin set to false when login as employee is clicked', () => {
+    const login: HTMLAnchorElement[] = fixture.nativeElement.querySelectorAll('.btn');
+    const loginAsEmployee = Array.from(login).find((el) => el.textContent === 'Login as Employee');
+    expect(loginAsEmployee).toBeTruthy();
+    spyOn(component, 'logIn');
+    loginAsEmployee!.click();
+    expect(component.logIn).toHaveBeenCalledWith(false);
+  });
 });
