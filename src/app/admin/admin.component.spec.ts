@@ -35,4 +35,10 @@ describe('AdminComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have a select items form', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('form')).toBeTruthy();
+  })
+
 });
