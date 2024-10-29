@@ -23,4 +23,16 @@ describe('BasketComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should add an item to the basket', () => {
+    const item: Item = {
+      id: 1,
+      name: 'item',
+    };
+    fixture.componentRef.setInput('items', [item]);
+
+    const newItems = component.items();
+    expect(newItems).toEqual([item]);
+  });
+
 });
