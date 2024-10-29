@@ -34,4 +34,10 @@ describe('SelectItemsComponent', () => {
     expect(items.length).toBe(possibleItemNames.length + numberOfDefaultItems);
   })
 
+  it('should get value from selected item', ()=> {
+    const selectedItem = 'item 1';
+    component.itemSubmitForm.get('selectedItem')?.setValue(selectedItem);
+    expect(component.getSelectedItem()).toBe(selectedItem);
+  })
+
 });
