@@ -70,7 +70,7 @@ describe('BasketComponent', () => {
       expect(removeButton).toBeNull();
     })
 
-  it('should have a remove button if an admin', () => {
+  it('should have a delete-basket-item button for admins', () => {
     const item: Item = {
       id: 1,
       name: 'item',
@@ -96,7 +96,7 @@ describe('BasketComponent', () => {
 
     fixture.detectChanges();
 
-    const removeButton = fixture.nativeElement.querySelector('button');
+    const removeButton = fixture.nativeElement.querySelector('[data-testid="basket-table_data__removeButton"]');
     removeButton.click();
 
     expect(component.removeItemById).toHaveBeenCalled();
