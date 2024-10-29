@@ -39,17 +39,17 @@ describe('BasketComponent', () => {
   });
 
   it('should contain item id and name', () => {
-    const item: Item = {
+    const itemToAdd: Item = {
       id: 1,
       name: 'fancyItemName',
     };
-    fixture.componentRef.setInput('items', [item]);
+    fixture.componentRef.setInput('items', [itemToAdd]);
     fixture.detectChanges();
 
-    const itemsTable = fixture.nativeElement.querySelector('table');
+    const item: HTMLTableCellElement = fixture.nativeElement.querySelector('[data-testid="basketTableBody"] > tbody > tr:first-child');
 
-    expect(itemsTable.textContent).toContain('1');
-    expect(itemsTable.textContent).toContain('fancyItemName');
+    expect(item.textContent).toContain('1');
+    expect(item.textContent).toContain('fancyItemName');
   });
 
   it('should not have a delete-bucket-item buttons for non-admins', () => {
