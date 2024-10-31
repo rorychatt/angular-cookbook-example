@@ -1,5 +1,5 @@
 import { Component, input, output } from '@angular/core';
-import { Item } from '../../models';
+import { Item, Roles } from '../../models';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
@@ -12,16 +12,16 @@ import { AsyncPipe } from '@angular/common';
 export class BasketComponent {
 
   items = input.required<Item[]>();
-
-  /**
-   * @deprecated Use 'loginState' instead
-   */
-  isAdmin = input<boolean>(false);
+  role = input<Roles>(Roles.Default);
 
   onItemRemoveById = output<number>()
 
   removeItemById(id: number) {
     this.onItemRemoveById.emit(id);
+  }
+
+  isAdminRole(){
+    return this.role() === Roles.Admin;
   }
 
 }

@@ -8,7 +8,7 @@
       <tr>
         <th>Id</th>
         <th>Item</th>
-        @if (isAdmin()) {
+        @if (isAdminRole()) {
           <th>Action</th>
         }
       </tr>
@@ -18,7 +18,7 @@
           <tr>
             <td>{{ item.id }}</td>
             <td>{{ item.name }}</td>
-            @if (isAdmin()) {
+            @if (isAdminRole()) {
               <td>
                 <button data-testid="basket-table_data__removeButton" class="btn btn-sm btn-ghost" (click)="removeItemById(item.id)">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
