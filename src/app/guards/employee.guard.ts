@@ -4,7 +4,7 @@ import { LoginService } from '../services/login.service';
 import { firstValueFrom } from 'rxjs';
 import { isAdmin } from './common';
 
-export const employeeGuard: CanActivateFn = async (route, state) => {
+export const employeeGuard: CanActivateFn = async () => {
   const authService = inject(LoginService);
   const router = inject(Router);
 
