@@ -26,14 +26,14 @@ describe('HeaderComponent', () => {
   it('should have logout anchor if logged in', () => {
     component.isLoggedIn$ = of(true);
     fixture.detectChanges();
-    const logout = fixture.nativeElement.querySelector('.btn');
+    const logout: HTMLAnchorElement = fixture.nativeElement.querySelector('[data-testid="header-logout__button"]');
     expect(logout.textContent).toContain('Log Out');
-  })
+  });
 
   it('should not have logout anchor if not logged in', () => {
     component.isLoggedIn$ = of(false);
     fixture.detectChanges();
-    const logout = fixture.nativeElement.querySelector('.btn');
+    const logout: HTMLAnchorElement = fixture.nativeElement.querySelector('[data-testid="header-logout__button"]');
     expect(logout).toBeNull();
   });
 
