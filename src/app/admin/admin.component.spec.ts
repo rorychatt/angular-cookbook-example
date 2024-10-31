@@ -2,8 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AdminComponent } from './admin.component';
 import { ActivatedRoute } from '@angular/router';
-import { of } from 'rxjs';
+import { firstValueFrom, of } from 'rxjs';
 import { ItemsStoreService } from '../services/items-store.service';
+import { possibleItemNames } from '../models';
 
 describe('AdminComponent', () => {
   let component: AdminComponent;
@@ -30,6 +31,16 @@ describe('AdminComponent', () => {
     const spy = spyOn(itemsStoreService, 'removeItemById');
     component.removeItemById(itemId);
     expect(spy).toHaveBeenCalledWith(itemId);
+  });
+
+  it('should add item to itemStoreService', async () => {
+    const itemsStoreService = TestBed.inject(ItemsStoreService);
+
+    const spy = spyOn(itemsStoreService, 'addItem');
+    const itemNameToAdd = possibleItemNames[0];
+    component.addItem(itemNameToAdd);
+    expect(spy).toHaveBeenCalledWith(itemNameToAdd);
+
   });
 
 });
