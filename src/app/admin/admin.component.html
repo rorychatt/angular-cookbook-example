@@ -2,5 +2,5 @@
   <h2>Admin</h2>
   <app-select-items (onItemAdd)="addItem($event)" [possibleItemNames]="possibleItemNames"/>
   <app-basket (onItemRemoveById)="removeItemById($event)" [items]="(itemsStoreService.items$ | async)!"
-              [isAdmin]="true"/>
+              [role]="(loginService.role$ | async)!"/>
 </section>

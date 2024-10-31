@@ -2,11 +2,11 @@
   <a
     class="btn"
     routerLink="/admin"
-    (click)="logIn(true)"
+    (click)="logIn(Roles.Admin)"
   >Login as Admin</a>
   <a
     class="btn"
     routerLink="/employee"
-    (click)="logIn(false)"
+    (click)="logIn(Roles.Default)"
   >Login as Employee</a>
 </section>

@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BasketComponent } from './basket.component';
-import { Item } from '../../models';
+import { Item, Roles } from '../../models';
 
 describe('BasketComponent', () => {
   let component: BasketComponent;
@@ -65,7 +65,7 @@ describe('BasketComponent', () => {
     };
 
     fixture.componentRef.setInput('items', [item]);
-    fixture.componentRef.setInput('isAdmin', true);
+    fixture.componentRef.setInput('role', Roles.Admin);
     fixture.detectChanges();
 
     const removeButton = fixture
@@ -81,7 +81,7 @@ describe('BasketComponent', () => {
       name: 'item',
     };
     fixture.componentRef.setInput('items', [item]);
-    fixture.componentRef.setInput('isAdmin', true);
+    fixture.componentRef.setInput('role', Roles.Admin);
     spyOn(component, 'removeItemById');
 
     fixture.detectChanges();
@@ -101,7 +101,7 @@ describe('BasketComponent', () => {
       name: 'item',
     };
     fixture.componentRef.setInput('items', [item]);
-    fixture.componentRef.setInput('isAdmin', true);
+    fixture.componentRef.setInput('role', Roles.Admin);
 
     spyOn(component.onItemRemoveById, 'emit');
 

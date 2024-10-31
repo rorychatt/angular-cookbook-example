@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { LoginComponent } from './login.component';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
+import { Roles } from '../../models';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -52,7 +53,7 @@ describe('LoginComponent', () => {
     expect(loginAsAdmin).toBeTruthy();
     spyOn(component, 'logIn');
     loginAsAdmin!.click();
-    expect(component.logIn).toHaveBeenCalledWith(true);
+    expect(component.logIn).toHaveBeenCalledWith(Roles.Admin);
   });
 
   it('should emit a call with property isAdmin set to false when login as employee is clicked', () => {
@@ -61,6 +62,6 @@ describe('LoginComponent', () => {
     expect(loginAsEmployee).toBeTruthy();
     spyOn(component, 'logIn');
     loginAsEmployee!.click();
-    expect(component.logIn).toHaveBeenCalledWith(false);
+    expect(component.logIn).toHaveBeenCalledWith(Roles.Default);
   });
 });

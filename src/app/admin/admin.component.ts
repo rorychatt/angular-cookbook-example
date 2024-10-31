@@ -4,6 +4,7 @@ import { ItemsStoreService } from '../services/items-store.service';
 import { AsyncPipe } from '@angular/common';
 import { BasketComponent } from "../components/basket/basket.component";
 import { possibleItemNames } from '../models';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-admin',
@@ -15,6 +16,7 @@ import { possibleItemNames } from '../models';
 export class AdminComponent {
 
   itemsStoreService = inject(ItemsStoreService);
+  loginService = inject(LoginService);
 
   removeItemById(itemId: number) {
     this.itemsStoreService.removeItemById(itemId);
