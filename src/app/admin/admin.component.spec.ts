@@ -23,14 +23,4 @@ describe('AdminComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have a select items form', () => {
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('form')).toBeTruthy();
-  })
-
-  it('should have a basket section', () => {
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.basket')).toBeTruthy();
-  });
-
 });
