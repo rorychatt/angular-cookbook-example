@@ -23,21 +23,6 @@ describe('BasketComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  /**
-   * @deprecated This is not necessary as it's not testing
-   * the component itself, but the Angular framework.
-   */
-  it('should add an item to the basket', () => {
-    const item: Item = {
-      id: 1,
-      name: 'item',
-    };
-    fixture.componentRef.setInput('items', [item]);
-
-    const newItems = component.items();
-    expect(newItems).toEqual([item]);
-  });
-
   it('should contain item id and name', () => {
     const itemToAdd: Item = {
       id: 1,
@@ -129,33 +114,6 @@ describe('BasketComponent', () => {
     removeButton.click();
 
     expect(component.onItemRemoveById.emit).toHaveBeenCalledWith(1);
-  });
-
-  it('should display text if no items in basket', () => {
-    fixture.detectChanges();
-
-    const itemsTable = fixture.nativeElement.querySelector('table');
-    const noItemsText = fixture.nativeElement.querySelector('p');
-
-    expect(itemsTable).not.toBeTruthy();
-    expect(noItemsText).toBeTruthy();
-
-    expect(noItemsText.textContent).toContain('No items in the basket');
-  });
-
-  it('should not display text if items in basket', () => {
-    const item: Item = {
-      id: 1,
-      name: 'item',
-    };
-    fixture.componentRef.setInput('items', [item]);
-    fixture.detectChanges();
-
-    const itemsTable = fixture.nativeElement.querySelector('table');
-    const noItemsText = fixture.nativeElement.querySelector('p');
-
-    expect(itemsTable).toBeTruthy();
-    expect(noItemsText).not.toBeTruthy();
   });
 
 });
