@@ -12,6 +12,8 @@ export const employeeGuard: CanActivateFn = async () => {
   const role = await firstValueFrom(authService.role$);
 
   if(isLoggedIn && !isAdmin(role)) return true;
+
   await router.navigate(['']);
+
   return false;
 };
