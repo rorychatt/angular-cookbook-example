@@ -12,7 +12,12 @@ import { AsyncPipe } from '@angular/common';
 export class BasketComponent {
 
   items = input.required<Item[]>();
+
+  /**
+   * @deprecated Use 'loginState' instead
+   */
   isAdmin = input<boolean>(false);
+
   onItemRemoveById = output<number>()
 
   removeItemById(id: number) {
