@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AdminComponent } from './admin.component';
-import { ActivatedRoute } from '@angular/router';
-import { firstValueFrom, of } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
 import { ItemsStoreService } from '../services/items-store.service';
 import { possibleItemNames } from '../models';
 
