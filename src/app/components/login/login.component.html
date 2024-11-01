@@ -3,10 +3,12 @@
     class="btn"
     routerLink="/admin"
     (click)="logIn(Roles.Admin)"
+    data-testid="login-admin__button"
   >Login as Admin</a>
   <a
     class="btn"
     routerLink="/employee"
     (click)="logIn(Roles.Default)"
+    data-testid="login-employee__button"
   >Login as Employee</a>
 </section>

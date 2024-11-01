@@ -35,33 +35,5 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have a login as administrator anchor', () => {
-    const login: HTMLAnchorElement[] = fixture.nativeElement.querySelectorAll('.btn');
-    const loginAsAdmin = Array.from(login).find((el) => el.textContent === 'Login as Admin');
-    expect(loginAsAdmin).toBeTruthy();
-  })
 
-  it('should have a login as employee anchor', () => {
-    const login: HTMLAnchorElement[] = fixture.nativeElement.querySelectorAll('.btn');
-    const loginAsEmployee = Array.from(login).find((el) => el.textContent === 'Login as Employee');
-    expect(loginAsEmployee).toBeTruthy();
-  });
-
-  it('should emit a call with property isAdmin set to true when login as admin is clicked', () => {
-    const login: HTMLAnchorElement[] = fixture.nativeElement.querySelectorAll('.btn');
-    const loginAsAdmin = Array.from(login).find((el) => el.textContent === 'Login as Admin');
-    expect(loginAsAdmin).toBeTruthy();
-    spyOn(component, 'logIn');
-    loginAsAdmin!.click();
-    expect(component.logIn).toHaveBeenCalledWith(Roles.Admin);
-  });
-
-  it('should emit a call with property isAdmin set to false when login as employee is clicked', () => {
-    const login: HTMLAnchorElement[] = fixture.nativeElement.querySelectorAll('.btn');
-    const loginAsEmployee = Array.from(login).find((el) => el.textContent === 'Login as Employee');
-    expect(loginAsEmployee).toBeTruthy();
-    spyOn(component, 'logIn');
-    loginAsEmployee!.click();
-    expect(component.logIn).toHaveBeenCalledWith(Roles.Default);
-  });
 });
