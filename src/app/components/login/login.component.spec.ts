@@ -35,5 +35,26 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should emit login as admin message when pressing login as admin button', () => {
+
+    const loginButton: HTMLButtonElement = fixture
+      .nativeElement
+      .querySelector('[data-testid="login-admin__button"]');
+
+    spyOn(component.loginService, 'logIn');
+    loginButton.click();
+    expect(component.loginService.logIn).toHaveBeenCalledWith(Roles.Admin);
+  });
+
+  it('should emit login as user message when pressing login as user button', () => {
+
+    const loginButton: HTMLButtonElement = fixture
+      .nativeElement
+      .querySelector('[data-testid="login-employee__button"]');
+
+    spyOn(component.loginService, 'logIn');
+    loginButton.click();
+    expect(component.loginService.logIn).toHaveBeenCalledWith(Roles.Default);
+  });
 
 });
