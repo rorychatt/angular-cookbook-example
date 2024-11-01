@@ -23,19 +23,4 @@ describe('ItemsStoreService', () => {
     });
   });
 
-  // it('should remove item', async () => {
-  //   service.addItem('item1');
-  //   service.addItem('item2');
-  //
-  //   const items = await firstValueFrom(service.items$);
-  //   const item1Id = items[0].id;
-  //
-  //   expect(item1Id).toBeDefined();
-  //
-  //   service.removeItemById(item1Id);
-  //   service.items$.subscribe((items) => {
-  //     expect(items.length).toBe(1);
-  //     expect(items[0].name).toBe('item2');
-  //   });
-  // });
 });
