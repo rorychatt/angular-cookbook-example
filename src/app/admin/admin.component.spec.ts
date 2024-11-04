@@ -42,15 +42,4 @@ describe('AdminComponent', () => {
 
   });
 
-  it('should add an existing item to basket', async () => {
-    const itemsStoreService = TestBed.inject(ItemsStoreService);
-    const itemNameToAdd = possibleItemNames[0];
-    component.addItem(itemNameToAdd);
-
-    const items = await firstValueFrom(itemsStoreService.items$);
-
-    expect(items.at(-1)).toBeTruthy();
-    expect(items.at(-1)!.name).toContain(itemNameToAdd);
-  })
-
 });

@@ -2,7 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EmployeeComponent } from './employee.component';
 import { ActivatedRoute } from '@angular/router';
-import { of } from 'rxjs';
+import { firstValueFrom, of } from 'rxjs';
+import { ItemsStoreService } from '../services/items-store.service';
+import { possibleItemNames } from '../models';
 
 describe('EmployeeComponent', () => {
   let component: EmployeeComponent;
@@ -35,4 +37,15 @@ describe('EmployeeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call add item to itemStoreService', async () => {
+    const itemsStoreService = TestBed.inject(ItemsStoreService);
+
+    const spy = spyOn(itemsStoreService, 'addItem');
+    const itemNameToAdd = possibleItemNames[0];
+    component.addItem(itemNameToAdd);
+    expect(spy).toHaveBeenCalledWith(itemNameToAdd);
+
+  });
+
 });
