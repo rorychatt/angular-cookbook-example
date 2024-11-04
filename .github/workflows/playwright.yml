@@ -16,7 +16,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Start development server
-        run: npm run dev &
+        run: npm run start &
       - name: Wait for server to be ready
         run: sleep 20
       - name: Install Playwright Browsers
