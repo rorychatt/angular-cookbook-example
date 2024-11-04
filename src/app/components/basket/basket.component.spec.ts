@@ -75,7 +75,7 @@ describe('BasketComponent', () => {
     expect(removeButton).not.toBeNull();
   });
 
-  it('should call the item to remove', () => {
+  it('should be able to remove bucket items as an admin', () => {
     const item: Item = {
       id: 1,
       name: 'item',
