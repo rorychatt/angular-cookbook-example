@@ -13,3 +13,9 @@ test('says no items in the basket when basket is empty', async ({ page }) => {
 
   await expect(page.locator(`[data-testid='basket__empty']`)).toBeVisible();
 });
+
+test('add item to basket button is disabled when no item is selected', async ({ page }) => {
+  await loginToAdminPage(page);
+
+  await expect(page.locator(`[data-testid='select-items_select__btn']`)).toHaveClass(/btn-disabled/);
+});
