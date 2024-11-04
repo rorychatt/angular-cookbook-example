@@ -29,10 +29,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'angular-cookbook-example' title`, () => {
+  it(`should have the 'Angular Cookbook Example' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular-cookbook-example');
+    expect(app.title).toEqual('Angular Cookbook Example');
   });
 
 });
