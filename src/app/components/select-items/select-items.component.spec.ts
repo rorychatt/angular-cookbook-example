@@ -23,13 +23,19 @@ describe('SelectItemsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display a list of all possible items', () => {
-    const items = fixture.nativeElement.querySelectorAll('option');
-    const numberOfDefaultItems = 1
-    expect(items.length).toBe(possibleItemNames.length + numberOfDefaultItems);
+  it('should display a list of all possible items correctly', () => {
+    const selectItemsForm = fixture.nativeElement.querySelector('[data-testid="select_item__form"]');
+    expect(selectItemsForm).toBeTruthy();
+
+    const selectItems = fixture.nativeElement.querySelectorAll('[data-testid="select_item__form"] > option');
+    expect(selectItems.length).toBe(possibleItemNames.length + 1);
+
+    possibleItemNames.forEach((item, index) => {
+      expect(selectItems[index + 1].textContent).toBe(item);
+    });
   })
 
-  it('should get value from selected item', ()=> {
+  it('should get value from selected item', () => {
     const selectedItem = 'item 1';
     component.itemSubmitForm.get('selectedItem')?.setValue(selectedItem);
     expect(component.getSelectedItem()).toBe(selectedItem);
