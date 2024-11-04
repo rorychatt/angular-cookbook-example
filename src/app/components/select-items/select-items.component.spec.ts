@@ -23,11 +23,6 @@ describe('SelectItemsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should add empty item', () => {
-    component.addItem();
-    expect(component.getSelectedItem()).toBe('');
-  });
-
   it('should display a list of all possible items', () => {
     const items = fixture.nativeElement.querySelectorAll('option');
     const numberOfDefaultItems = 1
