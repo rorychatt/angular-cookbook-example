@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { loginToAdminPage } from './helpers';
 
-test('guard should redirect to main page if direct access', async ({ page }) => {
+test('should not allow access to admin page without logging in', async ({ page }) => {
   await page.goto('/angular-cookbook-example/admin');
 
   await expect(page).toHaveURL('/angular-cookbook-example/');
