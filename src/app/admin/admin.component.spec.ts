@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AdminComponent } from './admin.component';
+import { firstValueFrom } from 'rxjs';
+import { ItemsStoreService } from '../services/items-store.service';
+import { possibleItemNames } from '../models';
 
 describe('AdminComponent', () => {
   let component: AdminComponent;
@@ -8,7 +11,7 @@ describe('AdminComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AdminComponent]
+      imports: [AdminComponent],
     })
     .compileComponents();
 
@@ -20,4 +23,23 @@ describe('AdminComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call itemStoreService to remove item by Id', () => {
+    const itemId = 1;
+    const itemsStoreService = TestBed.inject(ItemsStoreService);
+    const spy = spyOn(itemsStoreService, 'removeItemById');
+    component.removeItemById(itemId);
+    expect(spy).toHaveBeenCalledWith(itemId);
+  });
+
+  it('should call add item to itemStoreService', async () => {
+    const itemsStoreService = TestBed.inject(ItemsStoreService);
+
+    const spy = spyOn(itemsStoreService, 'addItem');
+    const itemNameToAdd = possibleItemNames[0];
+    component.addItem(itemNameToAdd);
+    expect(spy).toHaveBeenCalledWith(itemNameToAdd);
+
+  });
+
 });

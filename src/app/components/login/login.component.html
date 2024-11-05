@@ -1,4 +1,14 @@
 <section class="flex flex-row gap-3 justify-center">
-  <a class="btn" routerLink="/admin" (click)="logIn(true)">Login as Admin</a>
-  <a class="btn" routerLink="/employee" (click)="logIn(false)">Login as Employee</a>
+  <a
+    class="btn"
+    routerLink="/admin"
+    (click)="logIn(Roles.Admin)"
+    data-testid="login-admin__button"
+  >Login as Admin</a>
+  <a
+    class="btn"
+    routerLink="/employee"
+    (click)="logIn(Roles.Default)"
+    data-testid="login-employee__button"
+  >Login as Employee</a>
 </section>

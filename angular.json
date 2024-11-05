@@ -53,6 +53,7 @@
               "outputHashing": "all"
             },
             "development": {
+              "baseHref": "/angular-cookbook-example/",
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true

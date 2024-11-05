@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { LoginService } from '../../services/login.service';
+import { Roles } from '../../models';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,9 @@ export class LoginComponent {
 
   loginService = inject(LoginService);
 
-  logIn(isAdministrator: boolean) {
-    this.loginService.logIn(isAdministrator);
+  logIn(role: Roles) {
+    this.loginService.logIn(role);
   }
+
+  protected readonly Roles = Roles;
 }

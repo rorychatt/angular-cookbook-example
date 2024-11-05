@@ -1,9 +1,9 @@
 <form [formGroup]="itemSubmitForm" (ngSubmit)="addItem()" class="flex flex-row gap-4 align-middle justify-between">
-  <select formControlName="selectedItem" class="select select-bordered w-full max-w-xs">
+  <select data-testid="select_item__form" formControlName="selectedItem" class="select select-bordered w-full max-w-xs">
     <option value="" disabled selected>Select an item</option>
     @for (item of possibleItemNames(); track item) {
       <option [value]="item">{{ item }}</option>
     }
   </select>
-  <button [disabled]="!itemSubmitForm.valid" class="btn" [ngClass]="{'btn-disabled': !itemSubmitForm.get('selectedItem')?.value}">Add to basket 🛒</button>
+  <button data-testid="select-items_select__btn" [disabled]="!itemSubmitForm.valid" class="btn" [ngClass]="{'btn-disabled': !itemSubmitForm.get('selectedItem')?.value}">Add to basket 🛒</button>
 </form>

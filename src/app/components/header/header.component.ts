@@ -14,7 +14,6 @@ import { AsyncPipe, NgClass } from '@angular/common';
 export class HeaderComponent {
   loginService = inject(LoginService);
   isLoggedIn$ = this.loginService.loggedIn$;
-  isAdmin$ = this.loginService.isAdmin$;
 
   logOut() {
     this.loginService.logOut();
