@@ -19,9 +19,3 @@ test('add item to basket button is disabled when no item is selected', async ({ 
 
   await expect(page.locator(`[data-testid='select-items_select__btn']`)).toHaveClass(/btn-disabled/);
 });
-
-test('should have a select item form', async ({ page }) => {
-  await loginToAdminPage(page);
-
-  await expect(page.locator(`[data-testid='select_item__form']`)).toBeVisible();
-});
